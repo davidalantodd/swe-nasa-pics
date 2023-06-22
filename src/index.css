@@ -1,0 +1,33 @@
+body {
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#root {
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.wrapper {
+  padding: 1rem;
+  max-height: 100%;
+}
+
+.nasa-img {
+  display: block;
+  object-fit: contain;
+}
