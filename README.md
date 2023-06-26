@@ -18,9 +18,15 @@ using its internal logic.
 
 ## Things to see and do
 
-### Explore some components
+### Break it down
 
 Run `npm i && npm run dev` and open the app.
+
+Let the apprentices break this app down into components. How do they think it
+might be broken down? Which bits do they think are components? What might the
+family tree look like?
+
+### Add some components
 
 The [MUI 5](https://mui.com/material-ui/) library is installed. You can see we
 have used a date picker component and a slider component. All we had to do was
