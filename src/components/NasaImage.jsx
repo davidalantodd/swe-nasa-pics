@@ -1,11 +1,7 @@
-import { useContext, useEffect, useState } from 'react'
-import { DateContext } from '../contexts/DateContext'
+import { useEffect, useState } from 'react'
 import { nasaDate } from '../utils/formatDate'
-import { SizeContext } from '../contexts/SizeContext'
 
-export default function NasaImage() {
-  const { date } = useContext(DateContext)
-  const { size } = useContext(SizeContext)
+export default function NasaImage({ date, size }) {
   const [img, setImg] = useState(null)
 
   useEffect(() => {
@@ -16,6 +12,7 @@ export default function NasaImage() {
     const url = new URL('/planetary/apod', 'https://api.nasa.gov')
     url.searchParams.set('api_key', import.meta.env['VITE_NASA_KEY'])
     url.searchParams.set('date', nasaDate(date))
+    console.log(url.toString())
     const res = await fetch(url)
     const data = await res.json()
     console.log(data)

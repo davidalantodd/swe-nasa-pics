@@ -3,9 +3,6 @@ import { useState } from 'react'
 import Header from './components/Header'
 import ControlPanel from './components/ControlPanel'
 import DisplayPanel from './components/DisplayPanel'
-// contexts
-import { DateContext } from './contexts/DateContext'
-import { SizeContext } from './contexts/SizeContext'
 
 function App() {
   const [date, setDate] = useState(new Date())
@@ -14,12 +11,13 @@ function App() {
     <>
       <Header />
       <main>
-        <DateContext.Provider value={{ date, setDate }}>
-          <SizeContext.Provider value={{ size, setSize }}>
-            <ControlPanel />
-            <DisplayPanel />
-          </SizeContext.Provider>
-        </DateContext.Provider>
+        <ControlPanel
+          date={date}
+          setDate={setDate}
+          size={size}
+          setSize={setSize}
+        />
+        <DisplayPanel date={date} size={size} />
       </main>
     </>
   )

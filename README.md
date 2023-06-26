@@ -1,5 +1,10 @@
 # Nasa Pics
 
+Note that the `.env` file is included with with a key for Nasa'a API.
+
+This is bad practice but seems worth it for the convenience of not having every
+coach get their own key.
+
 ## Coach Notes
 
 Some teams create their own component frameworks from scratch; some will use

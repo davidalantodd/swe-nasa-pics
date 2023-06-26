@@ -1,15 +1,12 @@
 import NasaImage from './NasaImage'
-import { DateContext } from '../contexts/DateContext'
-import { useContext } from 'react'
 import { readableDate } from '../utils/formatDate'
 
-export default function DisplayPane() {
-  const { date } = useContext(DateContext)
+export default function DisplayPanel({ date, size }) {
   return (
     <div className='wrapper'>
       <h2>Display Panel</h2>
       <h3>{readableDate(date)}</h3>
-      <NasaImage />
+      <NasaImage date={date} size={size} />
     </div>
   )
 }
