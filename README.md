@@ -26,6 +26,15 @@ Let the apprentices break this app down into components. How do they think it
 might be broken down? Which bits do they think are components? What might the
 family tree look like?
 
+### A11y
+
+The image has no alt text! Check the developer console for the log of the data
+returned by the api. Is there something in there we could use for the alt text?
+Let's do it!
+
+Any other a11y concerns? (What is it like interacting with this site using
+keyboard only? Is tabbing good?)
+
 ### Add some components
 
 The [MUI 5](https://mui.com/material-ui/) library is installed. You can see we
