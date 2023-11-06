@@ -23,7 +23,7 @@ describe("App", () => {
   });
   
   // unit tests
-  it('renders Header, ControlPanel, and DisplayPanel', async () => {
+  test('renders Header, ControlPanel, and DisplayPanel', async () => {
     render(<App />);
     
     const headerElement = await screen.findByText(/Nasa Images/i);
