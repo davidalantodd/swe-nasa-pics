@@ -21,19 +21,8 @@ describe("App", () => {
   afterEach(() => {
     window.fetch = initialFetch;
   });
-
-  it("renders Control Panel component", async () => {
-    render(<App />);
-    const text = await screen.findByText(/Control Panel/i);
-    expect(text).toBeInTheDocument();
-  });
-
-  it("renders Header component", async () => {
-    render(<App />);
-    const text = await screen.findByText(/Nasa Images/i);
-    expect(text).toBeInTheDocument();
-  });
   
+  // unit tests
   it('renders Header, ControlPanel, and DisplayPanel', async () => {
     render(<App />);
     
@@ -46,7 +35,6 @@ describe("App", () => {
     expect(displayPanelElement).toBeInTheDocument();
   });
 
-  // unit test
   test('ControlPanel component renders correctly', () => {
     const date = new Date();
     const setDate = jest.fn();
