@@ -7,9 +7,9 @@ export default function ControlPanel({ date, setDate, size, setSize }) {
     <div className='wrapper'>
       <h2>Control Panel</h2>
       <h3>Date</h3>
-      <DatePicker date={date} setDate={setDate} />
+      <DatePicker data-testid="date-input" date={date} setDate={setDate} />
       <h3>Size</h3>
-      <SizeSlider size={size} setSize={setSize} />
+      <SizeSlider data-testid="size-slider" size={size} setSize={setSize} />
     </div>
   )
 }
