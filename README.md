@@ -10,101 +10,23 @@ There are many tools which are aimed at simulating user interaction directly, an
 
 ## Things to see and do
 
-The file has been configured to run Jest with React Testing Library. Some starter unit tests have been provided for you, but you shoudl feel empowered to add more! A few ideas:
+The file has been configured to run Jest with React Testing Library. Some starter unit tests have been provided for you, but you should feel empowered to add more!
+
+### Unit Tests
+Unit tests focus on testing individual units of code in isolation to ensure that they work as expected. In this case, you are testing the ControlPanel component in isolation. You are rendering the component and then making assertions to check if specific elements with certain text content are present in the rendered output. This test does not involve the interaction with external dependencies or other parts of the application, which is a characteristic of unit tests.
+
+### Integration Tests
+The test 'size value reflects user input' an example of an integration test. It renders the App component, interacts with a slider element within that component by simulating a change event using fireEvent, and then checks if the value of the slider element is updated correctly.
+
+### Functional Tests
+The test 'size value set by props' is an example of a functional test. It renders a component (SizeSlider) with certain props and checks if the rendered component behaves as expected. It verifies that the sliderElement has a value of '50' when the component is rendered with the size prop set to 50.
+
+A few extension ideas:
 - Create some additional unit tests that test functionality like:
     - Fetching a new picture for a new date and updating the corresponding mock data.
     - Testing that an image resizes when the slider value updates
     - Testing how errors are handled.
 - Explore how to write end-to-end, integration, and component tests using [Cypress](https://docs.cypress.io/guides/overview/why-cypress).
-
-### Some example test files
-
-#### SizeSlider.test.js
-```
-import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
-import SizeSlider from '../components/SizeSlider';
-import App from '../App';
-
-test('renders size slider component',()=>{
-    const mockSetSize = jest.fn()
-    render(<SizeSlider size={50} setSize={mockSetSize}/>);
-    const sliderElement = screen.getByRole('slider');
-    expect(sliderElement).toBeInTheDocument();
-})
-
-test('size value set by props',()=>{
-    const mockSetSize = jest.fn()
-    render(<SizeSlider size={50} setSize={mockSetSize}/>);
-    const sliderElement = screen.getByRole('slider');
-    expect(sliderElement).toHaveValue('50')
-})
-
-test('size value reflects user input',()=>{
-    render(<App/>);
-    const sliderElement = screen.getByRole('slider');
-    fireEvent.change(sliderElement, {target: {value:'100'}})
-    expect(sliderElement).toHaveValue('100')
-})
-```
-
-#### NasaImage.test.js
-```
-import { render, screen, fireEvent } from '@testing-library/react';
-import format from 'date-fns/format';
-import App from '../App';
-
-test('default image loads', async () => {
-    render(<App />);
-    const image = screen.getByRole('img');
-    expect(image.src).toContain('loading.jpeg');
-});
-
-test('image changes when new date is selected', async () =>{
-    render(<App/>);
-    const date = format(new Date('07/04/2023'), 'MM/dd/yyy');
-    const datePickerElement = screen.getByLabelText('nasa date picker');
-    fireEvent.change(datePickerElement, {target: {value:date}});
-    const imageElement = await screen.findByAltText('Aurora over Icelandic Waterfall');
-    expect(imageElement.src).toContain('https://apod.nasa.gov/apod/image/2307');
-})
-```
-
-#### Header.test.js
-```
-import React from 'react';
-import {render, screen } from '@testing-library/react';
-import Header from '../components/Header';
-
-test('render header component', () =>{
-    render(<Header/>);
-    const headerElement = screen.getByRole('heading');
-    expect(headerElement).toContainHTML('NASA Images');
-})
-```
-
-#### DatePicker.test.js
-```
-import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
-import format from 'date-fns/format';
-import App from '../App';
-
-test('renders date picker component', ()=>{
-    render(<App/>);
-    const datePickerElement = screen.getByLabelText('nasa date picker');
-    expect(datePickerElement).toBeInTheDocument();
-})
-
-test('change date when user selects a new date', () => {
-    render(<App/>);
-    const date = format(new Date('07/04/2023'), 'MM/dd/yyy');
-    const datePickerElement = screen.getByLabelText('nasa date picker');
-    fireEvent.change(datePickerElement, {target: {value:date}});
-    const updatedDate = screen.getByDisplayValue('07/04/2023');
-    expect(updatedDate).toBeInTheDocument();
-})
-```
 
 ## Next steps
 
