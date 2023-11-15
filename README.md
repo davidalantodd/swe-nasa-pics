@@ -1,5 +1,25 @@
 # Nasa Pics
 
+## Demo Discussion Questions
+
+#### Questions
+* What is state management?
+* What can state do in React that local variables cannot?
+* How is the useContext() hook different from useState()?
+* When would you use one hook over the other?
+
+#### What is State Management?
+* Part of the dynamic information of an app
+* The memory of a component  - able to be recalled as needed 
+* A local variable won't trigger renders - state does
+* A local variable is limited to that component's scope - state is not
+
+#### What are some use cases of State Management?
+* Something that needs to be updated when there is a change -> button that tracks when clicked
+* Update the UI in response to form handling (change the size of an image from a user inputting a slider)
+* Share data across many components (a context that tracks shopping cart or dark mode)
+* Ensure that the user always sees the most current data across componenents
+
 ## Coach Notes
 
 This week marks a shift towards using a state management pattern in apprentice

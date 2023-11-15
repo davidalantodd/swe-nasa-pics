@@ -1,10 +1,16 @@
 import { useContext, useEffect, useState } from 'react'
 import { DateContext } from '../contexts/DateContext'
 import { nasaDate } from '../utils/formatDate'
+//import SizeContext
+import { SizeContext } from '../contexts/SizeContext'
 
-export default function NasaImage({ size }) {
+//10. remove the accepted props here
+export default function NasaImage() {
   const { date } = useContext(DateContext)
   const [img, setImg] = useState(null)
+
+  //11. import prop (just size) using useContext, passing in our context
+  const {size} = useContext(SizeContext)
 
   useEffect(() => {
     fetchImg()
