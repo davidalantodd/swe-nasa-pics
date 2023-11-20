@@ -23,7 +23,7 @@ describe("App", () => {
     window.fetch = initialFetch;
   });
 
-  // unit test
+  // integration test
   test("renders Control Panel component", async () => {
     render(<App />);
     const text = await screen.findByText(/Control Panel/i);
@@ -37,7 +37,7 @@ describe("App", () => {
       expect(headerElement).toContainHTML('NASA Images');
   })
 
-  // unit test
+  // integration test
   test('renders date picker component', ()=>{
       render(<App/>);
       const datePickerElement = screen.getByLabelText('nasa date picker');
