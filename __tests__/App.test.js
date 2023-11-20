@@ -23,21 +23,21 @@ describe("App", () => {
     window.fetch = initialFetch;
   });
 
-  // integration test
+  // integration test (ensures that multiple components within the App work together and that the Control Panel is rendered)
   test("renders Control Panel component", async () => {
     render(<App />);
     const text = await screen.findByText(/Control Panel/i);
     expect(text).toBeInTheDocument();
   });
 
-  // unit test
+  // unit test (focuses on testing the Header component in isolation)
   test('render header component', () =>{
       render(<Header/>);
       const headerElement = screen.getByRole('heading');
       expect(headerElement).toContainHTML('NASA Images');
   })
 
-  // integration test
+  // integration test (verifies the rendering of the date picker component within the context of the App.)
   test('renders date picker component', ()=>{
       render(<App/>);
       const datePickerElement = screen.getByLabelText('nasa date picker');
@@ -54,7 +54,7 @@ describe("App", () => {
       expect(updatedDate).toBeInTheDocument();
   })
 
-  // unit test
+  // unit test (focus on the behavior of the SizeSlider component in isolation)
   test('renders size slider component',()=>{
       const mockSetSize = jest.fn()
       render(<SizeSlider size={50} setSize={mockSetSize}/>);
@@ -62,7 +62,7 @@ describe("App", () => {
       expect(sliderElement).toBeInTheDocument();
   })
 
-  // unit test
+  // unit test (focus on the behavior of the SizeSlider component in isolation)
   test('size value set by props',()=>{
       const mockSetSize = jest.fn()
       render(<SizeSlider size={50} setSize={mockSetSize}/>);
