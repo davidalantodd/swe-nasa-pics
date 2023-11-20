@@ -10,14 +10,14 @@ There are many tools which are aimed at simulating user interaction directly, an
 
 ## Things to see and do
 
+- Coach can remove comments from __tests__/App.test.js and quiz apprentices via live polling to see if they know if it is a unit/integration/functional test
+
 The file has been configured to run Jest with React Testing Library. Some starter unit tests have been provided for you, but you shoudl feel empowered to add more! A few ideas:
 - Create some additional unit tests that test functionality like:
     - Fetching a new picture for a new date and updating the corresponding mock data.
     - Testing that an image resizes when the slider value updates
     - Testing how errors are handled.
 - Explore how to write end-to-end, integration, and component tests using [Cypress](https://docs.cypress.io/guides/overview/why-cypress).
-
-- See "bd-testing-demo" for some more built out tests
 
 ## Next steps
 
