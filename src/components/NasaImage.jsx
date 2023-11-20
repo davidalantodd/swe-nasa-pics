@@ -17,5 +17,9 @@ export default function NasaImage({ date, size }) {
     setImg(data)
   }
 
-  return !!img && <img src={img.url} data-testid="nasa-image" className='nasa-img' width={`${size}%`} />
+  if(img){
+    return <img src={img.url} className='nasa-img' alt={img.title} width={`${size}%`} />
+  } else {
+    return <img src='/loading.jpeg' className='nasa-img' alt="loading" width={`100`} />
+  }
 }

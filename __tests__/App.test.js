@@ -77,5 +77,12 @@ describe("App", () => {
       fireEvent.change(sliderElement, {target: {value:'100'}})
       expect(sliderElement).toHaveValue('100')
   })
+
+  // functional test (simulates the user experience by rendering the entire App and checking if the default image is displayed)
+  test('default image loads', async () => {
+      render(<App />);
+      const image = screen.getByRole('img');
+      expect(image.src).toContain('loading.jpeg');
+  });
   
 });
