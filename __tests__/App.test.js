@@ -23,24 +23,28 @@ describe("App", () => {
     window.fetch = initialFetch;
   });
 
+  // unit test
   test("renders Control Panel component", async () => {
     render(<App />);
     const text = await screen.findByText(/Control Panel/i);
     expect(text).toBeInTheDocument();
   });
 
+  // unit test
   test('render header component', () =>{
       render(<Header/>);
       const headerElement = screen.getByRole('heading');
       expect(headerElement).toContainHTML('NASA Images');
   })
 
+  // unit test
   test('renders date picker component', ()=>{
       render(<App/>);
       const datePickerElement = screen.getByLabelText('nasa date picker');
       expect(datePickerElement).toBeInTheDocument();
   })
 
+  // integration test (involves interactions between components within the App, specifically between the date picker component and the component that displays the selected date.)
   test('change date when user selects a new date', () => {
       render(<App/>);
       const date = format(new Date('07/04/2023'), 'MM/dd/yyy');
@@ -50,6 +54,7 @@ describe("App", () => {
       expect(updatedDate).toBeInTheDocument();
   })
 
+  // unit test
   test('renders size slider component',()=>{
       const mockSetSize = jest.fn()
       render(<SizeSlider size={50} setSize={mockSetSize}/>);
@@ -57,6 +62,7 @@ describe("App", () => {
       expect(sliderElement).toBeInTheDocument();
   })
 
+  // unit test
   test('size value set by props',()=>{
       const mockSetSize = jest.fn()
       render(<SizeSlider size={50} setSize={mockSetSize}/>);
@@ -64,6 +70,7 @@ describe("App", () => {
       expect(sliderElement).toHaveValue('50')
   })
 
+  // integration test (involves an interaction between the SizeSlider component and the slider element, ensuring that user input is correctly reflected.)
   test('size value reflects user input',()=>{
       render(<App/>);
       const sliderElement = screen.getByRole('slider');
