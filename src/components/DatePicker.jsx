@@ -5,7 +5,7 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker'
 export default function MyDatePicker({ date, setDate }) {
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns}>
-      <DatePicker value={date} onChange={newDate => setDate(newDate)} />
+      <DatePicker value={date} label="nasa date picker" onChange={newDate => setDate(newDate)} />
     </LocalizationProvider>
   )
 }
