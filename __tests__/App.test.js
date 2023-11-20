@@ -4,8 +4,8 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import { MOCK_ONE_NASA_DATA } from "../mocks/mockNasaData";
 import App from "../src/App";
 import Header from "../src/components/Header";
+import SizeSlider from "../src/components/SizeSlider";
 import format from 'date-fns/format';
-import ControlPanel from "../src/components/ControlPanel";
 const initialFetch = window.fetch;
 
 describe("App", () => {
@@ -48,6 +48,27 @@ describe("App", () => {
       fireEvent.change(datePickerElement, {target: {value:date}});
       const updatedDate = screen.getByDisplayValue('07/04/2023');
       expect(updatedDate).toBeInTheDocument();
+  })
+
+  test('renders size slider component',()=>{
+      const mockSetSize = jest.fn()
+      render(<SizeSlider size={50} setSize={mockSetSize}/>);
+      const sliderElement = screen.getByRole('slider');
+      expect(sliderElement).toBeInTheDocument();
+  })
+
+  test('size value set by props',()=>{
+      const mockSetSize = jest.fn()
+      render(<SizeSlider size={50} setSize={mockSetSize}/>);
+      const sliderElement = screen.getByRole('slider');
+      expect(sliderElement).toHaveValue('50')
+  })
+
+  test('size value reflects user input',()=>{
+      render(<App/>);
+      const sliderElement = screen.getByRole('slider');
+      fireEvent.change(sliderElement, {target: {value:'100'}})
+      expect(sliderElement).toHaveValue('100')
   })
   
 });
