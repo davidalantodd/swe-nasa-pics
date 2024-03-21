@@ -5,7 +5,6 @@ import ControlPanel from './components/ControlPanel'
 import DisplayPanel from './components/DisplayPanel'
 // contexts
 import { DateContext } from './contexts/DateContext'
-// 3. import SizeContext from contexts
 import { SizeContext } from './contexts/SizeContext'
 
 function App() {
@@ -15,14 +14,12 @@ function App() {
     <>
       <Header />
       <main>
-      {/* 4. Wrap the two components that need the state in the SizeContext provider, and remove the props*/}
-        <SizeContext.Provider value= {{size, setSize}}>
-          <DateContext.Provider value={{ date, setDate }}>
-            {/* Remove props from these components since they are now witihn the provider */}
-            <ControlPanel/>
+        <DateContext.Provider value={{ date, setDate }}>
+          <SizeContext.Provider value={{ size, setSize }}>
+            <ControlPanel />
             <DisplayPanel />
-          </DateContext.Provider>
-        </SizeContext.Provider>
+          </SizeContext.Provider>
+        </DateContext.Provider>
       </main>
     </>
   )

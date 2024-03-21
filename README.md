@@ -64,27 +64,7 @@ access, or just read?
 
 The `size` and `setSize` context are still being passed around as props!
 
-Refactor this now to use `useContext()` instead.
-
-- Create `contexts/SizeContext.js` and create the context
-- Head to `App.js` and import the new `SizeContext`, then wrap
-  `<ControlPanel />` and `<DisplayPanel />` in a `<SizeContext.Provider>`. We
-  can remove the props from `<ControlPanel />` and `<DisplayPanel />` too!
-- In `ControlPanel.jsx` and `SizePicker.jsx`, remove the accepted props.
-  `SizePicker.jsx` can get `size` and `setSize` from `useContext` now (see
-  `DatePicker.jsx` as a guide).
-- In `DisplayPanel.jsx` and `NasaImage.jsx`, remove the props. `NasaImage.jsx`
-  can get `size` from `useContext` instead.
-
-This refactor should demo the difference between props and context nicely.
-
-### Date in the header
-
-What if we wanted to display the date of the displayed image in the
-`Header.jsx`? Would this work as is? What would we need to do? (N.b. the
-`<Header />` element is not nested inside the `<DateContext.Provider />` -
-without refactoring `App.jsx` so that this is the case, `useContext` will not
-work.)
+Try refactoring this now to use `useContext()` instead.
 
 ### What are the benefits
 
