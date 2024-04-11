@@ -5,6 +5,7 @@ import ControlPanel from './components/ControlPanel'
 import DisplayPanel from './components/DisplayPanel'
 // contexts
 import { DateContext } from './contexts/DateContext'
+import { SizeContext } from './contexts/SizeContext'
 
 function App() {
   const [date, setDate] = useState(new Date())
@@ -14,8 +15,11 @@ function App() {
       <Header />
       <main>
         <DateContext.Provider value={{ date, setDate }}>
-          <ControlPanel size={size} setSize={setSize} />
-          <DisplayPanel size={size} />
+          {/* Wrap our components with the provider and remove props in rendered components */}
+          <SizeContext.Provider value={{ size, setSize }}>
+            <ControlPanel/>
+            <DisplayPanel/>
+          </SizeContext.Provider>
         </DateContext.Provider>
       </main>
     </>
