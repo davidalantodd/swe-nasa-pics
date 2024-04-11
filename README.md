@@ -50,8 +50,8 @@ Refactor this now to use `useContext()` instead.
 - Head to `App.js` and import the new `SizeContext`, then wrap
   `<ControlPanel />` and `<DisplayPanel />` in a `<SizeContext.Provider>`. We
   can remove the props from `<ControlPanel />` and `<DisplayPanel />` too!
-- In `ControlPanel.jsx` and `SizePicker.jsx`, remove the accepted props.
-  `SizePicker.jsx` can get `size` and `setSize` from `useContext` now (see
+- In `ControlPanel.jsx` and `SizeSlider.jsx`, remove the accepted props.
+  `SizeSlider.jsx` can get `size` and `setSize` from `useContext` now (see
   `DatePicker.jsx` as a guide).
 - In `DisplayPanel.jsx` and `NasaImage.jsx`, remove the props. `NasaImage.jsx`
   can get `size` from `useContext` instead.
