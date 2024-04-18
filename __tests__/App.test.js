@@ -37,14 +37,14 @@ describe("App", () => {
       expect(headerElement).toContainHTML('NASA Images');
   })
 
-  // integration test (verifies the rendering of the date picker component within the context of the App.) -- also could be unit test if only rendering the DatePicker component
+  // ?
   test('renders date picker component', ()=>{
       render(<App/>);
       const datePickerElement = screen.getByLabelText('nasa date picker');
       expect(datePickerElement).toBeInTheDocument();
   })
 
-  // integration test (involves interactions between components within the App, specifically between the date picker component and the component that displays the selected date.)
+  // ?
   test('change date when user selects a new date', () => {
       render(<App/>);
       const date = format(new Date('07/04/2023'), 'MM/dd/yyy');
@@ -54,7 +54,7 @@ describe("App", () => {
       expect(updatedDate).toBeInTheDocument();
   })
 
-  // unit test (focus on the behavior of the SizeSlider component in isolation)
+  // ?
   test('renders size slider component',()=>{
       const mockSetSize = jest.fn()
       render(<SizeSlider size={50} setSize={mockSetSize}/>);
@@ -62,7 +62,7 @@ describe("App", () => {
       expect(sliderElement).toBeInTheDocument();
   })
 
-  // unit test (focus on the behavior of the SizeSlider component in isolation)
+  // ?
   test('size value set by props',()=>{
       const mockSetSize = jest.fn()
       render(<SizeSlider size={50} setSize={mockSetSize}/>);
@@ -70,7 +70,7 @@ describe("App", () => {
       expect(sliderElement).toHaveValue('50')
   })
 
-  // integration test (involves an interaction between the SizeSlider component and the slider element, ensuring that user input is correctly reflected.)
+  // ?
   test('size value reflects user input',()=>{
       render(<App/>);
       const sliderElement = screen.getByRole('slider');
@@ -78,7 +78,7 @@ describe("App", () => {
       expect(sliderElement).toHaveValue('100')
   })
 
-  // functional test (simulates the user experience by rendering the entire App and checking if the default image is displayed) -- also could be considered integration since it's testing multiple component interactions
+  // ?
   test('default image loads', async () => {
       render(<App />);
       const image = screen.getByRole('img');
